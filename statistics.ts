@@ -22,12 +22,13 @@ export function mode(numbers: Array<number>): Array<number> {
   const freqs: Map<number, number> = new Map();
   for (const x of numbers) {
     if (freqs.has(x)) {
-      freqs.set(x, freqs.get(x) || 0 + 1);
+      const old = freqs.get(x) || 0;
+      freqs.set(x, old + 1);
     } else {
       freqs.set(x, 1);
     }
   }
   const maxFreq = [...freqs.values()].reduce((acc, x) => (x > acc ? x : acc));
-  const mostFrequent = [...freqs.entries()].filter(([k, v]) => v == maxFreq);
-  return [...mostFrequent.map(([k, v]) => k)];
+  const mostFrequent = [...freqs.entries()].filter(([_, v]) => v == maxFreq);
+  return [...mostFrequent.map(([k, _]) => k)];
 }
