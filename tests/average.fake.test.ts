@@ -1,4 +1,4 @@
-import * as fs from "fs";
+import { readFileSync } from "fs";
 import { NumberSource } from "../NumberSource.ts";
 
 export class FileAccess implements NumberSource {

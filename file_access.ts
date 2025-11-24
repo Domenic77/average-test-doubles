@@ -1,9 +1,6 @@
-import * as fs from "fs";
-import { NumberSource } from "../average-test-doubles/NumberSource.ts";
-
-export class FileAccess implements NumberSource {
+export class FileAccess {
     readNumbers(path: string): number[] {
-        const content = fs.readFileSync(path, "utf-8");
+        const content = Deno.readTextFileSync(path);
         return content
             .split("\n")
             .map(line => line.trim())
