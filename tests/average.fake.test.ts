@@ -1,5 +1,5 @@
 import * as fs from "fs";
-import { NumberSource } from "../average-test-doubles/NumberSource.ts";
+import { NumberSource } from "../NumberSource.ts";
 
 export class FileAccess implements NumberSource {
     readNumbers(path: string): number[] {
