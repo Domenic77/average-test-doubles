@@ -3,6 +3,8 @@ import { FileAccess } from "../file_access.ts";
 import { SpyNumberSource } from "../spy.ts";
 import { expect } from "@std/expect";
 
+//Deno.writeTextFileSync("/tmp/test-numbers.txt", "3\n6\n9");
+
 Deno.test("Spy – records calls and returned values", () => {
     const file = "/tmp/test-numbers.txt";
     const spy = new SpyNumberSource(new FileAccess());
